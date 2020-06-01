@@ -24,9 +24,7 @@ class Author
     @@post_count += 1
   end
   
-  def posts
-    Post.all.select {|post| post.author == self}
-  end
+ 
 
   def self.post_count
     @@post_count
