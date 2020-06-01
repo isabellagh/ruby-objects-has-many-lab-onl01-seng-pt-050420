@@ -39,15 +39,15 @@ class Post
   
   @@all = []
   
-  def initialize(name, artist=nil)
+  def initialize(name, author=nil)
     @name = name
-    @artist = artist
+    @author = author
     @@all << self
   end
 
-  def artist_name
-    if self.artist
-      self.artist.name
+  def author
+    if self.author
+      self.author.name
     else
       nil
     end
