@@ -8,24 +8,25 @@ class Artist
     @songs = []
   end
 
+  def songs
+    Song.all.select {|song| song.artist == self}
+  end
+
   def add_song(song)
-    self.songs << song
+    @@song_count += 1
+    @songs << song
     song.artist = self
-    @@song_count +=1
   end
 
   def add_song_by_name(name)
-    song = Song.new(name)
-    self.songs << song
-    song.artist = self
-    @@song_count +=1
-  end
-
-  def songs
-    Song.all.select {|song| song.artist == self}
+    @@song_count += 1
+    s = Song.new(name)
+    self.add_song(s)
+    s
   end
 
   def self.song_count
     @@song_count
   end
+
 end
